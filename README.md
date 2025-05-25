@@ -53,25 +53,24 @@ Check out the install documentation at [docs.dmoj.ca](https://docs.dmoj.ca/#/sit
 ## Screenshots
 
 ### Welcome Page
-![.](https://i.imgur.com/Htbohrm.png)
-
+![alt text](image.png)
+.
 ### Homepage
-![.](https://i.imgur.com/tPdAw46.png)
+![alt text](image-1.png)
 
 ### Login Page
-![](https://i.imgur.com/i3Zj10X.png)
+![alt text](image-2.png)
 
 ### Register Page 
-![](https://i.imgur.com/bovi8xn.png)
+![alt text](image-3.png)
 
-### Import Users
-Load Data
+### Register Page (Tieng Viet)
+![alt text](image-4.png)
 
-![](https://imgur.com/zJRPhoZ.png)
+### IEdit Profile
+![alt text](image-5.png)
 
-Import Success
 
-![](https://imgur.com/i2VFfZj.png)
 
 <!-- ### Sleek problem statements
 Problems are written in Markdown, with LaTeX-enabled math and figures, as well as syntax highlighting. Problem statements can be saved to PDF for ease of distribution to contestants.
