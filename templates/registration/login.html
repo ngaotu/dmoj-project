@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+
+{% block media %}
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+}
+
+/*------------ Login container ------------*/
+
+.box-area{
+    width: 900px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(60,60,60,0.12);
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+/*------------ Right box ------------*/
+
+.right-box{
+    padding: 48px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 420px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder{
+    font-size: 16px;
+}
+/* ./make_style.sh
+python3 manage.py compilemessages
+python3 manage.py compilejsi18n
+python3 manage.py collectstatic
+python3 manage.py runserver 0.0.0.0:8000 */
+
+
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 900px){
+    .box-area{
+        flex-direction: column;
+        width: 98vw;
+        min-width: 320px;
+    }
+    .left-box, .right-box {
+        border-radius: 0;
+        min-width: unset;
+    }
+    .right-box {
+        padding: 32px 16px;
+    }
+}
+
+.header-text h2, .header-text p { color: #b71c1c; }
+.forgot a, .row a { color: #e53935; }
+.forgot a:hover, .row a:hover { color: #b71c1c; }
+
+.btn-primary {
+    background: #b71c1c !important;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px 2px;
+    box-shadow: 0 2px 8px rgba(183, 28, 28, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+    background: #e53935 !important;
+    box-shadow: 0 4px 16px rgba(183, 28, 28, 0.16);
+}
+    </style>
+{% endblock %}
+
+{% block body %}
+ 
+    
+    <!----------------------- Main Container -------------------------->
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+      <!----------------------- Login Container -------------------------->
+  
+         <div class="row box-area d-flex flex-row p-0">
+  
+      <!--------------------------- Left Box ----------------------------->
+  
+         <div class="col-md-6 left-box d-flex justify-content-center align-items-center" >
+            <img src="https://vju.ac.vn/wp-content/uploads/2023/12/logo-1.png" class="img-fluid" style="width: 250px;">
+         </div>
+  
+      <!-------------------- ------ Right Box ---------------------------->
+      <form action="" method="post" class="col-md-6 right-box">
+        <div class="header-text mb-4">
+            <h2> {{ _('Welcome to VJU Online Judge') }}</h2>
+        </div>        
+      {% csrf_token %}
+      {% if form.errors %}
+                <div id="form-errors" style="max-width: fit-content; margin-bottom: 15px">
+                    <p class="error" style="margin-top: 15px">{{ _('Invalid username or password.') }}</p>
+                    {% for error in form.non_field_errors() %}
+                        <p class="error">{{error}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+         <div class="row align-items-center">          
+                  <div class="input-group mb-3">
+                    {{ form.username }}
+                  </div>
+                  <div class="input-group mb-1">
+                      {{ form.password }}
+                  </div>
+                  <div class="input-group mb-5 d-flex justify-content-between">
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="formCheck">
+                          <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                      </div>
+                      <div class="forgot">
+                          <small><a href="{{ url('password_reset') }}">{{ _('Forgot your password?') }}</a></small>
+                      </div>
+                  </div>
+                  <div class="input-group mb-3">
+                      <button class="btn btn-lg btn-primary w-100 fs-6" type="submit">{{ _('Login!') }}</button>
+                      <input type="hidden" name="next" value="{{ next }}">
+                    </div>
+                  <div class="row">
+                    <a href="{{ url('registration_register') }}">{{_('Sign up')}}</a>
+                  </div>
+            </div>
+        </form>
+        </div>
+      </div>
+  
+{% endblock %}

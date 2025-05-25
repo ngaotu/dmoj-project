@@ -1,0 +1,75 @@
+<nav id="navigation" class="unselectable">
+    <div id="nav-container">
+        <a id="navicon" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+        <ul id="nav-list">
+            <li class="home-nav-element"><a href="{{ url('home') }}">{% include "site-logo-fragment.html" %}</a></li>
+            <li class="home-nav-element"><span class="nav-divider"></span></li>
+            <li class="home-menu-item"><a href="{{ url('home') }}" class="nav-home">{{ _('Home') }}</a></li>
+            {% for node in mptt_tree(nav_bar) recursive %}
+                <li>
+                    <a href="{{ node.path }}" class="nav-{{ node.key }}{% if node.key in nav_tab %} active{% endif %}">
+                        {{ user_trans(node.label) }}
+                        {% if not node.is_leaf_node() %}
+                            <div class="nav-expand">&gt;</div>
+                        {% endif %}
+                    </a>
+                    {% with children=node.get_children() %}
+                        {% if children %}<ul>{{ loop(children) }}</ul>{% endif %}
+                    {% endwith %}
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- <div> -->
+                 <span id="user-links">
+                 <!--   <span title="{{_('Language')}}">
+                        <form action="{{ url('set_language') }}" method="post" style="display: inline">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.get_full_path() }}">
+                            <select name="language" onchange="form.submit()" style="height: 1.5em">
+                                {% for language in language_info_list(LANGUAGES) %}
+                                <option value="{{ language.code }}" {% if language.code==LANGUAGE_CODE %}selected{% endif %}>
+                                    {{ language.name_local }} ({{ language.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    </span> -->
+                    {% if request.user.is_authenticated %}
+                        <ul>
+                            <li>
+                                <a href="{{ url('user_page') }}">
+                                    <span>
+                                        <img src="{{ gravatar(request.user, 32) }}" height="24" width="24">{# -#}
+                                        <span>{{ _('Hello, %(username)s.', username=bold(request.profile.display_name)) }}</span>
+                                    </span>
+                                </a>
+                                <ul style="width: 150px">
+                                    {% if request.user.is_staff or request.user.is_superuser %}
+                                        <li><a href="{{ url('admin:index') }}">{{ _('Admin') }}</a></li>
+                                    {% endif %}
+                                    <li><a href="{{ url('user_edit_profile') }}">{{ _('Edit profile') }}</a></li>
+                                    {% if request.user.is_impersonate %}
+                                        <li><a href="{{ url('impersonate-stop') }}">{{ _('Stop impersonating') }}</a></li>
+                                    {% else %}
+                                        <li>
+                                            <form action="{{ url('auth_logout') }}" method="POST">
+                                                {% csrf_token %}
+                                                <button type="submit">{{ _('Log out') }}</button>
+                                            </form>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <span class="anon">
+                            <a href="{{ url('auth_login') }}?next={{ LOGIN_RETURN_PATH|urlencode }}"><b>{{ _('Log in') }}</b></a>
+                            &nbsp;{{ _('or') }}&nbsp;
+                            <a href="{{ url('registration_register') }}"><b>{{ _('Sign up') }}</b></a>
+                        </span>
+                    {% endif %}
+                </span>
+        <!-- </div> -->
+    </div>
+    <div id="nav-shadow"></div>
+</nav>

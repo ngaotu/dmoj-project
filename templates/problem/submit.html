@@ -1,0 +1,360 @@
+{% extends "base.html" %}
+
+{% block js_media %}
+    <script type="text/javascript" src="{{ ACE_URL }}/ace.js"></script>
+    {{ form.media.js }}
+    {% compress js %}
+        <script src="{{ static('libs/clipboard/clipboard.js') }}"></script>
+        <script src="{{ static('libs/clipboard/tooltip.js') }}"></script>
+        <script type="text/javascript">
+            $(function () {
+                function format(state) {
+                    if (!state.id) return state.text; // optgroup
+                    return state.text;
+                }
+
+                window.previous_template = '';
+
+                function update_language_template() {
+                    var source = $('textarea#id_source');
+                    if (source.val() == window.previous_template.replace(/\r/g, '') || source.val() == '') {
+                        var lang_id = $('#id_language').val();
+                        var code = localStorage.getItem('submit:' + $('#id_language').val());
+
+                        function update_submit_area(code) {
+                            window.previous_template = code;
+                            source.val(code);
+                            window.ace_source.getSession().setValue(code);
+                        }
+
+                        if (code != null) {
+                            update_submit_area(code);
+                        } else {
+                            $.get('{{ url('language_template_ajax') }}', {
+                                id: lang_id
+                            }).done(function (template) {
+                                update_submit_area(template);
+                            });
+                        }
+                    }
+                }
+
+                function makeDisplayData(data) {
+                    var site_data = data.attr('data-info');
+                    var judge_data = data.attr('data-judge-info');
+                    var display_data = site_data || judge_data;
+                    return display_data;
+                }
+
+                function formatSelection(state) {
+                    if (!state.id) return state.text; // optgroup
+                    var data = makeDisplayData($("option[data-id=" + state.id + "]"));
+                    return $('<span>').append($('<b>').text(state.text), ' (', data, ')');
+                }
+
+                // Terrible hack, adapted from https://github.com/select2/select2/issues/4436
+                $.fn.select2.amd.define('select2/data/customAdapter', ['select2/results', 'select2/utils'], function (Result, Utils) {
+                    RefPresenter = function ($element, options, dataAdapter) {
+                        RefPresenter.__super__.constructor.call(this, $element, options, dataAdapter);
+                    };
+                    Utils.Extend(RefPresenter, Result);
+                    RefPresenter.prototype.bind = function (container, $container) {
+                        container.on('results:focus', function (params) {
+                            var data = makeDisplayData($("option[data-id=" + params.data.id + "]"));
+                            $("#result-version-info").text(data);
+                        });
+                        RefPresenter.__super__.bind.call(this, container, $container);
+                    };
+                    return RefPresenter;
+                });
+
+                var customAdapter = $.fn.select2.amd.require('select2/data/customAdapter');
+
+                $("#id_language").select2({
+                    theme: '{{ DMOJ_SELECT2_THEME }}',
+                    templateResult: format,
+                    templateSelection: formatSelection,
+                    resultsAdapter: customAdapter
+                });
+
+                $('#id_language').on('select2:open', function (evt) {
+                    var dropdown = $('.select2-dropdown');
+                    if (!$('#result-version-info').length)
+                        dropdown.append($("<span id=\"result-version-info\">"));
+                    dropdown.attr('id', 'language-select2');
+                });
+
+                $('#id_judge').on('select2:open', function (evt) {
+                    var dropdown = $('.select2-dropdown');
+                    $('#result-version-info').remove();
+                    dropdown.attr('id', 'judge-select2');
+                });
+
+                $('#id_language').change(function () {
+                    var lang = $("#id_language").find("option:selected").attr('data-ace');
+                    window.ace_source.getSession().setMode("ace/mode/" + lang);
+                    update_language_template();
+                });
+
+                $('#ace_source').on('ace_load', function (e, editor) {
+                    update_language_template();
+                    editor.commands.addCommand({
+                        name: 'save',
+                        bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
+                        exec: function () {
+                            localStorage.setItem('submit:' + $('#id_language').val(), editor.getSession().getValue());
+                        }
+                    });
+                    editor.getSession().setUseWrapMode(true);
+                    editor.setFontSize(14);
+                    editor.setPrintMarginColumn(100);
+                    editor.focus();
+                    // editor.setOptions({
+                    //     highlightActiveLine: false,
+                    //     showPrintMargin: false,
+                    // });
+
+                    $(document).ready(function () {
+                        editor.bind('cut copy paste', function (e) {
+                            $("#phppot-message").text('The Cut copy paste are disabled.');
+                            $("#phppot-message").show();
+                        });
+                    });
+
+                    editor.addEventListener("paste", function (e) {
+                        alertUser('Paste');
+                        e.clipboardData.setData("text/plain", "");
+                        e.preventDefault();
+                    });
+                    
+                    editor.addEventListener("copy", function (e) {
+                        alertUser('Copy');
+                        e.clipboardData.setData("text/plain", "");
+                        e.preventDefault();
+                    });
+
+                    editor.addEventListener("cut", function (e) {
+                        alertUser('Cut');
+                        e.clipboardData.setData("text/plain", "");
+                        e.preventDefault();
+                    });
+                });
+
+                function alertUser(message) {
+                    $("#phppot-message").text(message + ' is disabled. Use Copy Paste Button');
+                    $("#phppot-message").show();
+                }
+
+                $(window).resize(function () {
+                    $('#ace_source').height(Math.max($(window).height() - 353, 100));
+                }).resize();
+
+                $('#problem_submit').submit(function (event) {
+                    if ($('#id_source').val().length > 65536) {
+                        alert("{{ _('Your source code must contain at most 65536 characters.') }}");
+                        event.preventDefault();
+                        $('#problem_submit').find(':submit').attr('disabled', false);
+                    }
+                });
+
+
+                var codeClipboard;
+                document.getElementById("copyButton").addEventListener("click", function () {
+                    // codeClipboard = getSelectionText();
+                    codeClipboard = window.ace_source.getSession().doc.getTextRange(window.ace_source.selection.getRange());
+                    // console.log(codeClipboard);
+                });
+
+
+                function getSelectionText() {
+                    var editor = "";
+                    var textInEditor = "";
+                    var text = "";
+                    var activeEl = document.activeElement;
+                    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+                    var aceWidgetElement = document.querySelector(".ace-github input[type='hidden']");
+                    // Get the Ace Editor instance
+                    // var editor = ace.edit(aceWidgetElement.previousElementSibling);
+
+                    if (
+                        (activeElTagName == "textarea") || (activeElTagName == "input" &&
+                            /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) &&
+                        (typeof activeEl.selectionStart == "number")
+                    ) {
+                        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+                    } else if (window.getSelection) {
+                        editor = ace.edit('editor-code');
+                        // textarea.val(editor.getSession().getValue());
+                        // const range = document.selection.createRange();
+                        // text = document.getElementById("editor-code").val(editor.getSession().getValue())
+                        textInEditor = editor.getSelection();
+                        // var selectionRange = editor.getSession().getSelection().getRange();
+                        // var selectedText = selectionRange && editor.getSession().getTextRange(selectionRange);
+                        text = window.getSelection();
+                    }
+
+                    console.log("textInEditor " + textInEditor);
+                    console.log(editor.session.getTextRange(editor.getSelectionRange()));
+                    return text;
+                }
+
+                document.getElementById("pasteButton").addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const text = codeClipboard;
+                    if (codeClipboard != null && codeClipboard != "") {
+                        window.document.execCommand('insertText', false, text);
+                    }
+                });
+                window.add_code_copy_buttons = function ($container) {
+                    $container.find('pre code').each(function () {
+                        var copyButton;
+                        $(this).parent().before($('<div>', {'class': 'copy-clipboard'})
+                            .append(copyButton = $('<span>', {
+                                'class': 'btn-clipboard',
+                                'data-clipboard-text': $(this).text(),
+                                'title': '{{ _('Click to copy') }}'
+                            }).text('{{ _('Copy') }}')));
+
+                        $(copyButton.get(0)).mouseleave(function () {
+                            $(this).attr('class', 'btn-clipboard');
+                            $(this).removeAttr('aria-label');
+                        });
+
+                        var curClipboard = new Clipboard(copyButton.get(0));
+
+                        curClipboard.on('success', function (e) {
+                            e.clearSelection();
+                            showTooltip(e.trigger, '{{ _('Copied!') }}');
+                        });
+
+                        curClipboard.on('error', function (e) {
+                            showTooltip(e.trigger, fallbackMessage(e.action));
+                        });
+                    });
+                };
+                window.add_code_copy_buttons($(document));
+            });
+        </script>
+    {% endcompress %}
+{% endblock %}
+
+{% block media %}
+    {{ form.media.css }}
+    <style>
+
+        #phppot-message {
+            display: none;
+        }   
+        #phppot-message {
+            padding: 6px 20px;
+            font-size: 1em;
+            color: rgb(40, 40, 40);
+            box-sizing: border-box;
+            margin: 0px;
+            border-radius: 3px;
+            width: 100%;
+            overflow: auto;
+        }
+    
+        .error {
+            background-color: #fb807c91;
+            border: 1px solid #e46a66b0;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="content-description screen">
+        {% block description %}
+            {% cache 86400 'problem_html' problem.id MATH_ENGINE LANGUAGE_CODE %}
+                {{ description|markdown(problem.markdown_style, 'tex')|reference|absolutify(url)|str|safe }}
+            {% endcache %}
+
+            {% with license=problem.license %}
+                {% if license %}
+                    <span class="license">
+                        <a href="{{ url('license', license.key) }}">{{ license.display or license.name }}</a>
+                    </span>
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+    </div>
+    <br>
+    {% if not no_judges %}
+        {% if default_lang not in form.fields.language.queryset %}
+            <div class="alert alert-warning alert-dismissable">
+                <a class="close">x</a>
+                <b>{{ _('Warning!') }}</b>
+                {{ _('Your default language, %(language)s, is unavailable for this problem and has been deselected.', language=bold(default_lang.name)) }}
+            </div>
+        {% endif %}
+
+        {% if request.in_contest and submission_limit %}
+            {% if submissions_left > 0 %}
+                <div class="alert alert-warning alert-dismissable">
+                    <a class="close">x</a>
+                    {% trans left=submissions_left -%}
+                        You have {{ left }} submission left
+                        {%- pluralize -%}
+                        You have {{ left }} submissions left
+                    {%- endtrans %}
+                </div>
+            {% else %}
+                <div class="alert alert-warning alert-dismissable">
+                    <a class="close">x</a>
+                    {{ _('You have 0 submissions left') }}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    <form id="problem_submit" style="background-color: gainsboro;" action="" method="post" class="form-area">
+        {% csrf_token %}
+        {{ form.non_field_errors() }}
+        <div id="submit-wrapper">
+            <div id="editor" oncut="return false;" oncopy="return false;" onpaste="return false;" ondragstart="return false" ondrop="return false;" autocomplete="off">
+                <div style="margin-bottom: 6px;">   
+                    <label for="file_select"><i style="margin-left: 5px; color: darkgreen;"></i></label>
+                    <input id="pasteButton" style="float: right; margin-left: 5px; margin-bottom: 5px" type="button" value="Paste">
+                    <input id="copyButton" style="float: right; margin-left: 5px; margin-bottom: 5px" type="button" value="Copy">
+                </div>
+                {{ form.source.errors }}
+                {{ form.source }}
+                <div id="phppot-message" class="error" ></div>
+            </div>
+            {% if not no_judges %}
+                <div id="language">
+                    {{ form.language.errors }}
+                    <div id="language-select">
+                        <select id="id_language" name="language">
+                            {% for lang in form.fields.language.queryset %}
+                                <option value="{{ lang.id }}" data-id="{{ lang.id }}" data-name="{{ lang.name }}"
+                                        data-info="{{ lang.info }}" data-ace="{{ lang.ace }}"
+                                        data-judge-info="{{ runtime_versions(lang.runtime_versions()) }}"
+                                        {% if lang.id == default_lang.id %}selected{% endif %}>{{ lang.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <hr>
+
+        {% if no_judges %}
+            <span style="color: red">{{ _('No judge is available for this problem.') }}</span>
+        {% else %}
+            <div class="submit-bar">
+                {{ form.judge }}
+                <input type="submit" value="{{ _('Submit!') }}" class="button"
+                       {% if request.in_contest and submission_limit and not submissions_left %}disabled{% endif %}>
+            </div>
+        {% endif %}
+    </form>
+{% endblock %}
+
+{% block bodyend %}
+    {% if REQUIRE_JAX %}
+        {% include "mathjax-load.html" %}
+    {% endif %}
+{% endblock %}

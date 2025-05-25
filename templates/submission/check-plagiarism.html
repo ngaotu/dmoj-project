@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="h-scrollable-table">
+        <table id="check-table" class="table striped">
+            <thead>
+                <tr>
+                    <th>{{ _('#') }}</th>
+                    <th>{{ _('When') }}</th>
+                    <th>{{ _('Points') }}</th>
+                    <th>{{ _('Status') }}</th>
+                    <th>{{ _('Problem Name') }}</th>
+                    <th>{{ _('Language') }}</th>
+                    <th>{{ _('Time') }}</th>
+                    <th>{{ _('Memory') }}</th>
+                    <th>{{ _('Similarity') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for submission in submissions|reverse %}
+                {% set idx = submissions|length %}
+                {% set status = submission.short_status %}
+                <tr >
+                    <td>
+                        <a href="/src/{{ submission.id }}">{{ submission.id }}</a>
+                    </td>
+                    <td>
+                        {{ submission.date|date("M/d/Y H:i") }}
+                    </td>
+                    <td>
+                        {{ submission.case_points|floatformat(0) }} / {{ submission.case_total|floatformat(0) }}
+                    </td>
+                    <td>
+                        {{submission.short_status}}
+                    </td>
+                    <td>
+                        <a href="{{ url('problem_detail', submission.problem.code) }}">{{ problem_name }}</a>
+                    </td>
+                    <td>
+                        {{submission.language}}
+                    </td>
+                    <td>
+                        {% if submission.status in ('QU', 'P', 'G', 'CE', 'IE', 'AB') %}
+                            <div class="time">---</div>
+                        {% else %}
+                            {% if "TLE" != submission.result %}
+                                <div title="{{ submission.time or 0 }}s" class="time">
+                                    {{ (submission.time or 0)|floatformat(2) }}s
+                                </div>
+                            {% else %}
+                                <div class="time">---</div>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ (submission.memory_bytes|filesizeformat(True)).replace('i', '') }}
+                    </td>
+                    <td>
+                        {% set current_point = point[idx - loop.index0 -1 ] %}
+                        {% if current_point >= 80 %}
+                            <a href="/submissions/diff?first_id={{ submission.id }}&second_id={{ max_id[idx - loop.index0 -1 ] }}" style="color: red;">{{ current_point }}%</a>
+                        {% elif 50 < current_point < 80 %}
+                            <a href="/submissions/diff?first_id={{ submission.id }}&second_id={{ max_id[idx - loop.index0 -1 ] }}" style="color: orange;">{{ current_point }}%</a>
+                        {% else %}
+                            <a href="/submissions/diff?first_id={{ submission.id }}&second_id={{ max_id[idx - loop.index0 -1 ] }}" style="color: green;">{{ current_point }}%</a>
+                        {% endif %}
+                    </td>
+
+                    <td>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+

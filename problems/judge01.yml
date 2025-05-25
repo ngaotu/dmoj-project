@@ -1,0 +1,6 @@
+id: judge01
+key: 661L0b0HDJHmSVIGMnI4XU6Bf2K0gL9ZG+rzk3RP8ujUV/j8y/3bkVajXjVXsICMO6rI2BBPTXV7rMaX8LwfjV6qvr3ZR9VLLHLv
+problem_storage_globs:
+  - /problems/*  
+problems_storage_root:
+  - /problems

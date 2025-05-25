@@ -1,0 +1,79 @@
+:root {
+    /* Primary Colors */
+    --color-primary-0: #0f0f0f;
+    --color-primary-5: #111;
+    --color-primary-10: #181818;
+    --color-primary-25: #3b3b3b;
+    --color-primary-33: #555;
+    --color-primary-50: #808080;
+    --color-primary-66: #aaa;
+    --color-primary-75: #ccc;
+    --color-primary-90: #eee;
+    --color-primary-100: #f8f8f8;
+
+    /* Link Colors */
+    --color-link-50: #06d;
+    --color-link-75: #6bf;
+    --color-link-100: #49e;
+    --color-link-200: #d83;
+
+    /* Background Colors */
+    --color-page-bg: #222;
+
+    /* Contest Colors */
+    --color-contest-ranking-disqualified: #622;
+
+    /* Rating Colors */
+    --color-rating-none: #aaa;
+    --color-rating-newbie: #aaa;
+    --color-rating-amateur: #00a900;
+    --color-rating-expert: cornflowerblue;
+    --color-rating-candidate-master: mediumpurple;
+    --color-rating-master: #ffb100;
+    --color-rating-grandmaster: #e00;
+    --color-rating-target: #f55;
+
+    /* Select2 Colors */
+    --color-select2-search-dropdown: var(--color-primary-10);
+    --color-problem-submit-select2: #8a8a8a;
+
+    /* User Submission Activity Colors */
+    --color-user-submission-activity-0: #3b3b3b;
+    --color-user-submission-activity-1: #0e4429;
+    --color-user-submission-activity-2: #006d32;
+    --color-user-submission-activity-3: #26a641;
+    --color-user-submission-activity-4: #39d353;
+
+    /* Typography */
+    --font-family-base: 'Open Sans', sans-serif;
+    --font-family-heading: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Border */
+    --border-radius: 4px;
+    --border-color: var(--color-primary-25);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+
+    /* Z-index */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal: 1040;
+    --z-index-popover: 1050;
+    --z-index-tooltip: 1060;
+} 

@@ -1,0 +1,101 @@
+/* Dark Mode Theme */
+[data-theme="dark"] {
+    /* Primary Colors */
+    --color-primary-0: #0f0f0f;
+    --color-primary-5: #111;
+    --color-primary-10: #181818;
+    --color-primary-25: #3b3b3b;
+    --color-primary-33: #555;
+    --color-primary-50: #808080;
+    --color-primary-66: #aaa;
+    --color-primary-75: #ccc;
+    --color-primary-90: #eee;
+    --color-primary-100: #f8f8f8;
+
+    /* Link Colors */
+    --color-link-50: #06d;
+    --color-link-75: #6bf;
+    --color-link-100: #49e;
+    --color-link-200: #d83;
+
+    /* Background Colors */
+    --color-page-bg: #222;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    background-color: var(--color-page-bg);
+    color: var(--color-primary-90);
+}
+
+[data-theme="dark"] a {
+    color: var(--color-link-75);
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--color-link-100);
+}
+
+[data-theme="dark"] a:active {
+    color: var(--color-link-200);
+}
+
+[data-theme="dark"] .dark-mode-img {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Dark Mode Table Styles */
+[data-theme="dark"] table {
+    background-color: var(--color-primary-10);
+    color: var(--color-primary-90);
+}
+
+[data-theme="dark"] th {
+    background-color: var(--color-primary-0);
+    color: var(--color-primary-66);
+}
+
+/* Dark Mode Form Styles */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: var(--color-primary-10);
+    color: var(--color-primary-90);
+    border-color: var(--color-primary-25);
+}
+
+/* Dark Mode Button Styles */
+[data-theme="dark"] button {
+    background-color: var(--color-primary-25);
+    color: var(--color-primary-90);
+}
+
+[data-theme="dark"] button:hover {
+    background-color: var(--color-primary-33);
+}
+
+/* Dark Mode Code Block Styles */
+[data-theme="dark"] pre,
+[data-theme="dark"] code {
+    background-color: var(--color-primary-5);
+    color: var(--color-primary-90);
+}
+
+/* Dark Mode Card Styles */
+[data-theme="dark"] .card {
+    background-color: var(--color-primary-10);
+    border-color: var(--color-primary-25);
+}
+
+/* Dark Mode Modal Styles */
+[data-theme="dark"] .modal {
+    background-color: var(--color-primary-10);
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom-color: var(--color-primary-25);
+}
+
+[data-theme="dark"] .modal-footer {
+    border-top-color: var(--color-primary-25);
+} 

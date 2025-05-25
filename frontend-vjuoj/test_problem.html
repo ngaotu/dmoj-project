@@ -1,0 +1,2162 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+
+<!-- font wesome stylesheet -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- bootstrap core css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<!-- fonts style -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/style.css" rel="stylesheet" />
+<!-- responsive style -->
+<link href="css/responsive.css" rel="stylesheet" />
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+ body  {
+	 font-family: "Open Sans", sans-serif !important ; 
+	 background-color: #e4e4e4 !important;
+	 width: 100vw  !important;
+	 height: 100vh  !important;
+	 display: flex  !important;
+	 align-items: center  !important;
+	 justify-content: center  !important;
+	 overflow: hidden  !important;
+     
+}
+ .card {
+	 background-color: #fff  !important;
+	 width: 100%  !important;
+	 max-width: 100%  !important;
+	 max-height: 100%  !important;
+	 display: flex  !important;
+	 flex-direction: column !important;
+	 box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5)  !important;
+}
+ .table-concept {
+	 width: 100%  !important;
+	 height: 100%  !important;
+	 max-height: 100% !important;
+	 overflow: auto !important;
+	 box-sizing: border-box !important;
+}
+ .table-concept .table-radio {
+	 display: none !important;
+}
+ .table-concept .table-radio:checked + .table-display {
+	 display: block !important;
+}
+ .table-concept .table-radio:checked + .table-display + table {
+	 width: 100% !important;
+	 display: table !important;
+}
+ .table-concept .table-radio:checked + .table-display + table + .pagination {
+	 display: flex !important;
+}
+ .table-concept .table-radio:checked + .table-display + table + .pagination > label.active {
+	 color: #fff !important;
+	 background-color: #696969 !important;
+	 cursor: default !important;
+}
+ .table-concept .table-radio:checked + .table-display + table + .pagination > label.disabled {
+	 color: #fff !important;
+	 background-color: #b5b5b5 !important;
+	 cursor: default !important;
+}
+ .table-concept .table-display {
+	 background-color: #e2e2e2 !important;
+	 text-align: right !important;
+	 padding: 10px !important;
+	 display: none !important;
+	 position: sticky !important;
+	 left: 0 !important;
+}
+ .table-concept table {
+	 background-color: #fff !important;
+	 font-size: 16px !important;
+	 border-collapse: collapse !important;
+	 display: none !important;
+}
+ .table-concept table tr:last-child td {
+	 border-bottom: 0 !important;
+}
+ .table-concept table tr th, .table-concept table tr td {
+	 text-align: left  !important;
+	 padding: 15px  !important;
+	 box-sizing: border-box  !important;
+}
+ .table-concept table tr th {
+	 color: #fff  !important;
+	 font-weight: normal  !important;
+	 background-color: #8f8f8f  !important;
+	 border-bottom: solid 2px #d8d8d8 !important;
+	 position: sticky !important;
+	 top: 0 !important;
+}
+ .table-concept table tr td {
+	 border: solid 1px #d8d8d8 !important;
+	 border-left: 0 !important;
+	 border-right: 0 !important;
+	 white-space: nowrap !important;
+}
+ .table-concept table tbody tr {
+	 transition: background-color 150ms ease-out !important;
+}
+ .table-concept table tbody tr:nth-child(2n) {
+	 background-color: #f5f5f5 !important;
+}
+ .table-concept table tbody tr:hover {
+	 background-color: #ebebeb  !important;
+}
+ .table-concept .pagination {
+	 background-color: #8f8f8f !important;
+	 width: 100% !important;
+	 display: none !important;
+	 position: sticky !important;
+	 bottom: 0 !important;
+	 left: 0 !important;
+}
+ .table-concept .pagination > label {
+	 background-color: #8f8f8f  !important;
+	 color: #fff !important;
+	 padding: 10px !important;
+	 cursor: pointer !important;
+}
+ .table-concept .pagination > label:hover {
+	 background-color: #a9a9a9;
+}
+ .table-concept .pagination > label:active {
+	 background-color: #767676;
+}
+ .table-title {
+	 color: #fff;
+	 background-color: #2f2f2f;
+	 padding: 15px;
+}
+ .table-title h2 {
+	 margin: 0;
+	 padding: 0;
+}
+ .button-container {
+	 width: 100%;
+	 box-sizing: border-box;
+	 display: flex;
+	 justify-content: flex-end;
+}
+ .button-container span {
+	 color: #8f8f8f;
+	 text-align: right;
+	 min-height: 100%;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 margin-left: 10px;
+	 margin-right: 10px;
+}
+ .button-container button {
+	 font-family: inherit;
+	 font-size: inherit;
+	 color: #fff;
+	 padding: 10px 15px;
+	 border: 0;
+	 margin: 0;
+	 outline: 0;
+	 border-radius: 0;
+	 transition: background-color 225ms ease-out;
+}
+ .button-container button.primary {
+	 background-color: #147eff;
+}
+ .button-container button.primary:hover {
+	 background-color: #479aff;
+}
+ .button-container button.primary:active {
+	 background-color: #0065e0;
+}
+ .button-container button.primary {
+	 background-color: #147eff;
+}
+ .button-container button.primary:hover {
+	 background-color: #479aff;
+}
+ .button-container button.primary:active {
+	 background-color: #0065e0;
+}
+ .button-container button.danger {
+	 background-color: #d11800;
+}
+ .button-container button.danger:hover {
+	 background-color: #ff2205;
+}
+ .button-container button.danger:active {
+	 background-color: #9e1200;
+}
+ .button-container button svg {
+	 fill: #fff;
+	 vertical-align: middle;
+	 padding: 0;
+	 margin: 0;
+}
+ 
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="table-title">
+            <h2>CSS ONLY TABLE</h2>
+        </div>
+        <div class="table-concept"><input class="table-radio" type="radio" name="table_radio" id="table_radio_0" checked="checked" />
+            <div class="table-display">Showing 1 to 20
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></i></td>
+                        <td>1</td>
+                        <td>This is Item number 1-1</td>
+                        <td>This is Item number 2-1</td>
+                        <td>This is Item number 3-1</td>
+                        <td>This is Item number 4-1</td>
+                        <td>This is Item number 5-1</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>2</td>
+                        <td>This is Item number 1-2</td>
+                        <td>This is Item number 2-2</td>
+                        <td>This is Item number 3-2</td>
+                        <td>This is Item number 4-2</td>
+                        <td>This is Item number 5-2</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>3</td>
+                        <td>This is Item number 1-3</td>
+                        <td>This is Item number 2-3</td>
+                        <td>This is Item number 3-3</td>
+                        <td>This is Item number 4-3</td>
+                        <td>This is Item number 5-3</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>4</td>
+                        <td>This is Item number 1-4</td>
+                        <td>This is Item number 2-4</td>
+                        <td>This is Item number 3-4</td>
+                        <td>This is Item number 4-4</td>
+                        <td>This is Item number 5-4</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>5</td>
+                        <td>This is Item number 1-5</td>
+                        <td>This is Item number 2-5</td>
+                        <td>This is Item number 3-5</td>
+                        <td>This is Item number 4-5</td>
+                        <td>This is Item number 5-5</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>6</td>
+                        <td>This is Item number 1-6</td>
+                        <td>This is Item number 2-6</td>
+                        <td>This is Item number 3-6</td>
+                        <td>This is Item number 4-6</td>
+                        <td>This is Item number 5-6</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>7</td>
+                        <td>This is Item number 1-7</td>
+                        <td>This is Item number 2-7</td>
+                        <td>This is Item number 3-7</td>
+                        <td>This is Item number 4-7</td>
+                        <td>This is Item number 5-7</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>8</td>
+                        <td>This is Item number 1-8</td>
+                        <td>This is Item number 2-8</td>
+                        <td>This is Item number 3-8</td>
+                        <td>This is Item number 4-8</td>
+                        <td>This is Item number 5-8</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>9</td>
+                        <td>This is Item number 1-9</td>
+                        <td>This is Item number 2-9</td>
+                        <td>This is Item number 3-9</td>
+                        <td>This is Item number 4-9</td>
+                        <td>This is Item number 5-9</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>10</td>
+                        <td>This is Item number 1-10</td>
+                        <td>This is Item number 2-10</td>
+                        <td>This is Item number 3-10</td>
+                        <td>This is Item number 4-10</td>
+                        <td>This is Item number 5-10</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>11</td>
+                        <td>This is Item number 1-11</td>
+                        <td>This is Item number 2-11</td>
+                        <td>This is Item number 3-11</td>
+                        <td>This is Item number 4-11</td>
+                        <td>This is Item number 5-11</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>12</td>
+                        <td>This is Item number 1-12</td>
+                        <td>This is Item number 2-12</td>
+                        <td>This is Item number 3-12</td>
+                        <td>This is Item number 4-12</td>
+                        <td>This is Item number 5-12</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>13</td>
+                        <td>This is Item number 1-13</td>
+                        <td>This is Item number 2-13</td>
+                        <td>This is Item number 3-13</td>
+                        <td>This is Item number 4-13</td>
+                        <td>This is Item number 5-13</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>14</td>
+                        <td>This is Item number 1-14</td>
+                        <td>This is Item number 2-14</td>
+                        <td>This is Item number 3-14</td>
+                        <td>This is Item number 4-14</td>
+                        <td>This is Item number 5-14</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>15</td>
+                        <td>This is Item number 1-15</td>
+                        <td>This is Item number 2-15</td>
+                        <td>This is Item number 3-15</td>
+                        <td>This is Item number 4-15</td>
+                        <td>This is Item number 5-15</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>16</td>
+                        <td>This is Item number 1-16</td>
+                        <td>This is Item number 2-16</td>
+                        <td>This is Item number 3-16</td>
+                        <td>This is Item number 4-16</td>
+                        <td>This is Item number 5-16</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>17</td>
+                        <td>This is Item number 1-17</td>
+                        <td>This is Item number 2-17</td>
+                        <td>This is Item number 3-17</td>
+                        <td>This is Item number 4-17</td>
+                        <td>This is Item number 5-17</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>18</td>
+                        <td>This is Item number 1-18</td>
+                        <td>This is Item number 2-18</td>
+                        <td>This is Item number 3-18</td>
+                        <td>This is Item number 4-18</td>
+                        <td>This is Item number 5-18</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>19</td>
+                        <td>This is Item number 1-19</td>
+                        <td>This is Item number 2-19</td>
+                        <td>This is Item number 3-19</td>
+                        <td>This is Item number 4-19</td>
+                        <td>This is Item number 5-19</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>20</td>
+                        <td>This is Item number 1-20</td>
+                        <td>This is Item number 2-20</td>
+                        <td>This is Item number 3-20</td>
+                        <td>This is Item number 4-20</td>
+                        <td>This is Item number 5-20</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label class="disabled" for="table_radio_-1">&laquo; Previous</label><label class="active" for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_1">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_1" />
+            <div class="table-display">Showing 21 to 40
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>21</td>
+                        <td>This is Item number 1-21</td>
+                        <td>This is Item number 2-21</td>
+                        <td>This is Item number 3-21</td>
+                        <td>This is Item number 4-21</td>
+                        <td>This is Item number 5-21</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>22</td>
+                        <td>This is Item number 1-22</td>
+                        <td>This is Item number 2-22</td>
+                        <td>This is Item number 3-22</td>
+                        <td>This is Item number 4-22</td>
+                        <td>This is Item number 5-22</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>23</td>
+                        <td>This is Item number 1-23</td>
+                        <td>This is Item number 2-23</td>
+                        <td>This is Item number 3-23</td>
+                        <td>This is Item number 4-23</td>
+                        <td>This is Item number 5-23</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>24</td>
+                        <td>This is Item number 1-24</td>
+                        <td>This is Item number 2-24</td>
+                        <td>This is Item number 3-24</td>
+                        <td>This is Item number 4-24</td>
+                        <td>This is Item number 5-24</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>25</td>
+                        <td>This is Item number 1-25</td>
+                        <td>This is Item number 2-25</td>
+                        <td>This is Item number 3-25</td>
+                        <td>This is Item number 4-25</td>
+                        <td>This is Item number 5-25</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>26</td>
+                        <td>This is Item number 1-26</td>
+                        <td>This is Item number 2-26</td>
+                        <td>This is Item number 3-26</td>
+                        <td>This is Item number 4-26</td>
+                        <td>This is Item number 5-26</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>27</td>
+                        <td>This is Item number 1-27</td>
+                        <td>This is Item number 2-27</td>
+                        <td>This is Item number 3-27</td>
+                        <td>This is Item number 4-27</td>
+                        <td>This is Item number 5-27</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>28</td>
+                        <td>This is Item number 1-28</td>
+                        <td>This is Item number 2-28</td>
+                        <td>This is Item number 3-28</td>
+                        <td>This is Item number 4-28</td>
+                        <td>This is Item number 5-28</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>29</td>
+                        <td>This is Item number 1-29</td>
+                        <td>This is Item number 2-29</td>
+                        <td>This is Item number 3-29</td>
+                        <td>This is Item number 4-29</td>
+                        <td>This is Item number 5-29</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>30</td>
+                        <td>This is Item number 1-30</td>
+                        <td>This is Item number 2-30</td>
+                        <td>This is Item number 3-30</td>
+                        <td>This is Item number 4-30</td>
+                        <td>This is Item number 5-30</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>31</td>
+                        <td>This is Item number 1-31</td>
+                        <td>This is Item number 2-31</td>
+                        <td>This is Item number 3-31</td>
+                        <td>This is Item number 4-31</td>
+                        <td>This is Item number 5-31</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>32</td>
+                        <td>This is Item number 1-32</td>
+                        <td>This is Item number 2-32</td>
+                        <td>This is Item number 3-32</td>
+                        <td>This is Item number 4-32</td>
+                        <td>This is Item number 5-32</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>33</td>
+                        <td>This is Item number 1-33</td>
+                        <td>This is Item number 2-33</td>
+                        <td>This is Item number 3-33</td>
+                        <td>This is Item number 4-33</td>
+                        <td>This is Item number 5-33</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>34</td>
+                        <td>This is Item number 1-34</td>
+                        <td>This is Item number 2-34</td>
+                        <td>This is Item number 3-34</td>
+                        <td>This is Item number 4-34</td>
+                        <td>This is Item number 5-34</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>35</td>
+                        <td>This is Item number 1-35</td>
+                        <td>This is Item number 2-35</td>
+                        <td>This is Item number 3-35</td>
+                        <td>This is Item number 4-35</td>
+                        <td>This is Item number 5-35</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>36</td>
+                        <td>This is Item number 1-36</td>
+                        <td>This is Item number 2-36</td>
+                        <td>This is Item number 3-36</td>
+                        <td>This is Item number 4-36</td>
+                        <td>This is Item number 5-36</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>37</td>
+                        <td>This is Item number 1-37</td>
+                        <td>This is Item number 2-37</td>
+                        <td>This is Item number 3-37</td>
+                        <td>This is Item number 4-37</td>
+                        <td>This is Item number 5-37</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>38</td>
+                        <td>This is Item number 1-38</td>
+                        <td>This is Item number 2-38</td>
+                        <td>This is Item number 3-38</td>
+                        <td>This is Item number 4-38</td>
+                        <td>This is Item number 5-38</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>39</td>
+                        <td>This is Item number 1-39</td>
+                        <td>This is Item number 2-39</td>
+                        <td>This is Item number 3-39</td>
+                        <td>This is Item number 4-39</td>
+                        <td>This is Item number 5-39</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>40</td>
+                        <td>This is Item number 1-40</td>
+                        <td>This is Item number 2-40</td>
+                        <td>This is Item number 3-40</td>
+                        <td>This is Item number 4-40</td>
+                        <td>This is Item number 5-40</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_0">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label class="active" for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_2">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_2" />
+            <div class="table-display">Showing 41 to 60
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>41</td>
+                        <td>This is Item number 1-41</td>
+                        <td>This is Item number 2-41</td>
+                        <td>This is Item number 3-41</td>
+                        <td>This is Item number 4-41</td>
+                        <td>This is Item number 5-41</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>42</td>
+                        <td>This is Item number 1-42</td>
+                        <td>This is Item number 2-42</td>
+                        <td>This is Item number 3-42</td>
+                        <td>This is Item number 4-42</td>
+                        <td>This is Item number 5-42</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>43</td>
+                        <td>This is Item number 1-43</td>
+                        <td>This is Item number 2-43</td>
+                        <td>This is Item number 3-43</td>
+                        <td>This is Item number 4-43</td>
+                        <td>This is Item number 5-43</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>44</td>
+                        <td>This is Item number 1-44</td>
+                        <td>This is Item number 2-44</td>
+                        <td>This is Item number 3-44</td>
+                        <td>This is Item number 4-44</td>
+                        <td>This is Item number 5-44</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>45</td>
+                        <td>This is Item number 1-45</td>
+                        <td>This is Item number 2-45</td>
+                        <td>This is Item number 3-45</td>
+                        <td>This is Item number 4-45</td>
+                        <td>This is Item number 5-45</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>46</td>
+                        <td>This is Item number 1-46</td>
+                        <td>This is Item number 2-46</td>
+                        <td>This is Item number 3-46</td>
+                        <td>This is Item number 4-46</td>
+                        <td>This is Item number 5-46</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>47</td>
+                        <td>This is Item number 1-47</td>
+                        <td>This is Item number 2-47</td>
+                        <td>This is Item number 3-47</td>
+                        <td>This is Item number 4-47</td>
+                        <td>This is Item number 5-47</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>48</td>
+                        <td>This is Item number 1-48</td>
+                        <td>This is Item number 2-48</td>
+                        <td>This is Item number 3-48</td>
+                        <td>This is Item number 4-48</td>
+                        <td>This is Item number 5-48</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>49</td>
+                        <td>This is Item number 1-49</td>
+                        <td>This is Item number 2-49</td>
+                        <td>This is Item number 3-49</td>
+                        <td>This is Item number 4-49</td>
+                        <td>This is Item number 5-49</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>50</td>
+                        <td>This is Item number 1-50</td>
+                        <td>This is Item number 2-50</td>
+                        <td>This is Item number 3-50</td>
+                        <td>This is Item number 4-50</td>
+                        <td>This is Item number 5-50</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>51</td>
+                        <td>This is Item number 1-51</td>
+                        <td>This is Item number 2-51</td>
+                        <td>This is Item number 3-51</td>
+                        <td>This is Item number 4-51</td>
+                        <td>This is Item number 5-51</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>52</td>
+                        <td>This is Item number 1-52</td>
+                        <td>This is Item number 2-52</td>
+                        <td>This is Item number 3-52</td>
+                        <td>This is Item number 4-52</td>
+                        <td>This is Item number 5-52</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>53</td>
+                        <td>This is Item number 1-53</td>
+                        <td>This is Item number 2-53</td>
+                        <td>This is Item number 3-53</td>
+                        <td>This is Item number 4-53</td>
+                        <td>This is Item number 5-53</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>54</td>
+                        <td>This is Item number 1-54</td>
+                        <td>This is Item number 2-54</td>
+                        <td>This is Item number 3-54</td>
+                        <td>This is Item number 4-54</td>
+                        <td>This is Item number 5-54</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>55</td>
+                        <td>This is Item number 1-55</td>
+                        <td>This is Item number 2-55</td>
+                        <td>This is Item number 3-55</td>
+                        <td>This is Item number 4-55</td>
+                        <td>This is Item number 5-55</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>56</td>
+                        <td>This is Item number 1-56</td>
+                        <td>This is Item number 2-56</td>
+                        <td>This is Item number 3-56</td>
+                        <td>This is Item number 4-56</td>
+                        <td>This is Item number 5-56</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>57</td>
+                        <td>This is Item number 1-57</td>
+                        <td>This is Item number 2-57</td>
+                        <td>This is Item number 3-57</td>
+                        <td>This is Item number 4-57</td>
+                        <td>This is Item number 5-57</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>58</td>
+                        <td>This is Item number 1-58</td>
+                        <td>This is Item number 2-58</td>
+                        <td>This is Item number 3-58</td>
+                        <td>This is Item number 4-58</td>
+                        <td>This is Item number 5-58</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>59</td>
+                        <td>This is Item number 1-59</td>
+                        <td>This is Item number 2-59</td>
+                        <td>This is Item number 3-59</td>
+                        <td>This is Item number 4-59</td>
+                        <td>This is Item number 5-59</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>60</td>
+                        <td>This is Item number 1-60</td>
+                        <td>This is Item number 2-60</td>
+                        <td>This is Item number 3-60</td>
+                        <td>This is Item number 4-60</td>
+                        <td>This is Item number 5-60</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_1">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label class="active" for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_3">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_3" />
+            <div class="table-display">Showing 61 to 80
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>61</td>
+                        <td>This is Item number 1-61</td>
+                        <td>This is Item number 2-61</td>
+                        <td>This is Item number 3-61</td>
+                        <td>This is Item number 4-61</td>
+                        <td>This is Item number 5-61</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>62</td>
+                        <td>This is Item number 1-62</td>
+                        <td>This is Item number 2-62</td>
+                        <td>This is Item number 3-62</td>
+                        <td>This is Item number 4-62</td>
+                        <td>This is Item number 5-62</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>63</td>
+                        <td>This is Item number 1-63</td>
+                        <td>This is Item number 2-63</td>
+                        <td>This is Item number 3-63</td>
+                        <td>This is Item number 4-63</td>
+                        <td>This is Item number 5-63</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>64</td>
+                        <td>This is Item number 1-64</td>
+                        <td>This is Item number 2-64</td>
+                        <td>This is Item number 3-64</td>
+                        <td>This is Item number 4-64</td>
+                        <td>This is Item number 5-64</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>65</td>
+                        <td>This is Item number 1-65</td>
+                        <td>This is Item number 2-65</td>
+                        <td>This is Item number 3-65</td>
+                        <td>This is Item number 4-65</td>
+                        <td>This is Item number 5-65</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>66</td>
+                        <td>This is Item number 1-66</td>
+                        <td>This is Item number 2-66</td>
+                        <td>This is Item number 3-66</td>
+                        <td>This is Item number 4-66</td>
+                        <td>This is Item number 5-66</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>67</td>
+                        <td>This is Item number 1-67</td>
+                        <td>This is Item number 2-67</td>
+                        <td>This is Item number 3-67</td>
+                        <td>This is Item number 4-67</td>
+                        <td>This is Item number 5-67</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>68</td>
+                        <td>This is Item number 1-68</td>
+                        <td>This is Item number 2-68</td>
+                        <td>This is Item number 3-68</td>
+                        <td>This is Item number 4-68</td>
+                        <td>This is Item number 5-68</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>69</td>
+                        <td>This is Item number 1-69</td>
+                        <td>This is Item number 2-69</td>
+                        <td>This is Item number 3-69</td>
+                        <td>This is Item number 4-69</td>
+                        <td>This is Item number 5-69</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>70</td>
+                        <td>This is Item number 1-70</td>
+                        <td>This is Item number 2-70</td>
+                        <td>This is Item number 3-70</td>
+                        <td>This is Item number 4-70</td>
+                        <td>This is Item number 5-70</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>71</td>
+                        <td>This is Item number 1-71</td>
+                        <td>This is Item number 2-71</td>
+                        <td>This is Item number 3-71</td>
+                        <td>This is Item number 4-71</td>
+                        <td>This is Item number 5-71</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>72</td>
+                        <td>This is Item number 1-72</td>
+                        <td>This is Item number 2-72</td>
+                        <td>This is Item number 3-72</td>
+                        <td>This is Item number 4-72</td>
+                        <td>This is Item number 5-72</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>73</td>
+                        <td>This is Item number 1-73</td>
+                        <td>This is Item number 2-73</td>
+                        <td>This is Item number 3-73</td>
+                        <td>This is Item number 4-73</td>
+                        <td>This is Item number 5-73</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>74</td>
+                        <td>This is Item number 1-74</td>
+                        <td>This is Item number 2-74</td>
+                        <td>This is Item number 3-74</td>
+                        <td>This is Item number 4-74</td>
+                        <td>This is Item number 5-74</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>75</td>
+                        <td>This is Item number 1-75</td>
+                        <td>This is Item number 2-75</td>
+                        <td>This is Item number 3-75</td>
+                        <td>This is Item number 4-75</td>
+                        <td>This is Item number 5-75</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>76</td>
+                        <td>This is Item number 1-76</td>
+                        <td>This is Item number 2-76</td>
+                        <td>This is Item number 3-76</td>
+                        <td>This is Item number 4-76</td>
+                        <td>This is Item number 5-76</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>77</td>
+                        <td>This is Item number 1-77</td>
+                        <td>This is Item number 2-77</td>
+                        <td>This is Item number 3-77</td>
+                        <td>This is Item number 4-77</td>
+                        <td>This is Item number 5-77</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>78</td>
+                        <td>This is Item number 1-78</td>
+                        <td>This is Item number 2-78</td>
+                        <td>This is Item number 3-78</td>
+                        <td>This is Item number 4-78</td>
+                        <td>This is Item number 5-78</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>79</td>
+                        <td>This is Item number 1-79</td>
+                        <td>This is Item number 2-79</td>
+                        <td>This is Item number 3-79</td>
+                        <td>This is Item number 4-79</td>
+                        <td>This is Item number 5-79</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>80</td>
+                        <td>This is Item number 1-80</td>
+                        <td>This is Item number 2-80</td>
+                        <td>This is Item number 3-80</td>
+                        <td>This is Item number 4-80</td>
+                        <td>This is Item number 5-80</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_2">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label class="active" for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_4">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_4" />
+            <div class="table-display">Showing 81 to 85
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>81</td>
+                        <td>This is Item number 1-81</td>
+                        <td>This is Item number 2-81</td>
+                        <td>This is Item number 3-81</td>
+                        <td>This is Item number 4-81</td>
+                        <td>This is Item number 5-81</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>82</td>
+                        <td>This is Item number 1-82</td>
+                        <td>This is Item number 2-82</td>
+                        <td>This is Item number 3-82</td>
+                        <td>This is Item number 4-82</td>
+                        <td>This is Item number 5-82</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>83</td>
+                        <td>This is Item number 1-83</td>
+                        <td>This is Item number 2-83</td>
+                        <td>This is Item number 3-83</td>
+                        <td>This is Item number 4-83</td>
+                        <td>This is Item number 5-83</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>84</td>
+                        <td>This is Item number 1-84</td>
+                        <td>This is Item number 2-84</td>
+                        <td>This is Item number 3-84</td>
+                        <td>This is Item number 4-84</td>
+                        <td>This is Item number 5-84</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>85</td>
+                        <td>This is Item number 1-85</td>
+                        <td>This is Item number 2-85</td>
+                        <td>This is Item number 3-85</td>
+                        <td>This is Item number 4-85</td>
+                        <td>This is Item number 5-85</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_3">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label class="active" for="table_radio_4" id="table_pager_4">5</label><label class="disabled" for="table_radio_5">Next &raquo;</label></div>
+        </div>
+    </div>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+
+<!-- font wesome stylesheet -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- bootstrap core css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<!-- fonts style -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/style.css" rel="stylesheet" />
+<!-- responsive style -->
+<link href="css/responsive.css" rel="stylesheet" />
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+ body  {
+	 font-family: "Open Sans", sans-serif !important ; 
+	 background-color: #e4e4e4 !important;
+	 width: 100vw  !important;
+	 height: 100vh  !important;
+	 display: flex  !important;
+	 align-items: center  !important;
+	 justify-content: center  !important;
+	 overflow: hidden  !important;
+     
+}
+ .card {
+	 background-color: #fff  !important;
+	 width: 100%  !important;
+	 max-width: 100%  !important;
+	 max-height: 100%  !important;
+	 display: flex  !important;
+	 flex-direction: column !important;
+	 box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5)  !important;
+}
+ .table-concept {
+	 width: 100%  !important;
+	 height: 100%  !important;
+	 max-height: 100% !important;
+	 overflow: auto !important;
+	 box-sizing: border-box !important;
+}
+ .table-concept .table-radio {
+	 display: none !important;
+}
+ .table-concept .table-radio:checked + .table-display {
+	 display: block !important;
+}
+ .table-concept .table-radio:checked + .table-display + table {
+	 width: 100% !important;
+	 display: table !important;
+}
+ .table-concept .table-radio:checked + .table-display + table + .pagination {
+	 display: flex !important;
+}
+ .table-concept .table-radio:checked + .table-display + table + .pagination > label.active {
+	 color: #fff !important;
+	 background-color: #696969 !important;
+	 cursor: default !important;
+}
+ .table-concept .table-radio:checked + .table-display + table + .pagination > label.disabled {
+	 color: #fff !important;
+	 background-color: #b5b5b5 !important;
+	 cursor: default !important;
+}
+ .table-concept .table-display {
+	 background-color: #e2e2e2 !important;
+	 text-align: right !important;
+	 padding: 10px !important;
+	 display: none !important;
+	 position: sticky !important;
+	 left: 0 !important;
+}
+ .table-concept table {
+	 background-color: #fff !important;
+	 font-size: 16px !important;
+	 border-collapse: collapse !important;
+	 display: none !important;
+}
+ .table-concept table tr:last-child td {
+	 border-bottom: 0 !important;
+}
+ .table-concept table tr th, .table-concept table tr td {
+	 text-align: left  !important;
+	 padding: 15px  !important;
+	 box-sizing: border-box  !important;
+}
+ .table-concept table tr th {
+	 color: #fff  !important;
+	 font-weight: normal  !important;
+	 background-color: #8f8f8f  !important;
+	 border-bottom: solid 2px #d8d8d8 !important;
+	 position: sticky !important;
+	 top: 0 !important;
+}
+ .table-concept table tr td {
+	 border: solid 1px #d8d8d8 !important;
+	 border-left: 0 !important;
+	 border-right: 0 !important;
+	 white-space: nowrap !important;
+}
+ .table-concept table tbody tr {
+	 transition: background-color 150ms ease-out !important;
+}
+ .table-concept table tbody tr:nth-child(2n) {
+	 background-color: #f5f5f5 !important;
+}
+ .table-concept table tbody tr:hover {
+	 background-color: #ebebeb  !important;
+}
+ .table-concept .pagination {
+	 background-color: #8f8f8f !important;
+	 width: 100% !important;
+	 display: none !important;
+	 position: sticky !important;
+	 bottom: 0 !important;
+	 left: 0 !important;
+}
+ .table-concept .pagination > label {
+	 background-color: #8f8f8f  !important;
+	 color: #fff !important;
+	 padding: 10px !important;
+	 cursor: pointer !important;
+}
+ .table-concept .pagination > label:hover {
+	 background-color: #a9a9a9;
+}
+ .table-concept .pagination > label:active {
+	 background-color: #767676;
+}
+ .table-title {
+	 color: #fff;
+	 background-color: #2f2f2f;
+	 padding: 15px;
+}
+ .table-title h2 {
+	 margin: 0;
+	 padding: 0;
+}
+ .button-container {
+	 width: 100%;
+	 box-sizing: border-box;
+	 display: flex;
+	 justify-content: flex-end;
+}
+ .button-container span {
+	 color: #8f8f8f;
+	 text-align: right;
+	 min-height: 100%;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 margin-left: 10px;
+	 margin-right: 10px;
+}
+ .button-container button {
+	 font-family: inherit;
+	 font-size: inherit;
+	 color: #fff;
+	 padding: 10px 15px;
+	 border: 0;
+	 margin: 0;
+	 outline: 0;
+	 border-radius: 0;
+	 transition: background-color 225ms ease-out;
+}
+ .button-container button.primary {
+	 background-color: #147eff;
+}
+ .button-container button.primary:hover {
+	 background-color: #479aff;
+}
+ .button-container button.primary:active {
+	 background-color: #0065e0;
+}
+ .button-container button.primary {
+	 background-color: #147eff;
+}
+ .button-container button.primary:hover {
+	 background-color: #479aff;
+}
+ .button-container button.primary:active {
+	 background-color: #0065e0;
+}
+ .button-container button.danger {
+	 background-color: #d11800;
+}
+ .button-container button.danger:hover {
+	 background-color: #ff2205;
+}
+ .button-container button.danger:active {
+	 background-color: #9e1200;
+}
+ .button-container button svg {
+	 fill: #fff;
+	 vertical-align: middle;
+	 padding: 0;
+	 margin: 0;
+}
+ 
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="table-title">
+            <h2>CSS ONLY TABLE</h2>
+        </div>
+        <div class="table-concept"><input class="table-radio" type="radio" name="table_radio" id="table_radio_0" checked="checked" />
+            <div class="table-display">Showing 1 to 20
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></i></td>
+                        <td>1</td>
+                        <td>This is Item number 1-1</td>
+                        <td>This is Item number 2-1</td>
+                        <td>This is Item number 3-1</td>
+                        <td>This is Item number 4-1</td>
+                        <td>This is Item number 5-1</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>2</td>
+                        <td>This is Item number 1-2</td>
+                        <td>This is Item number 2-2</td>
+                        <td>This is Item number 3-2</td>
+                        <td>This is Item number 4-2</td>
+                        <td>This is Item number 5-2</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>3</td>
+                        <td>This is Item number 1-3</td>
+                        <td>This is Item number 2-3</td>
+                        <td>This is Item number 3-3</td>
+                        <td>This is Item number 4-3</td>
+                        <td>This is Item number 5-3</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>4</td>
+                        <td>This is Item number 1-4</td>
+                        <td>This is Item number 2-4</td>
+                        <td>This is Item number 3-4</td>
+                        <td>This is Item number 4-4</td>
+                        <td>This is Item number 5-4</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>5</td>
+                        <td>This is Item number 1-5</td>
+                        <td>This is Item number 2-5</td>
+                        <td>This is Item number 3-5</td>
+                        <td>This is Item number 4-5</td>
+                        <td>This is Item number 5-5</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>6</td>
+                        <td>This is Item number 1-6</td>
+                        <td>This is Item number 2-6</td>
+                        <td>This is Item number 3-6</td>
+                        <td>This is Item number 4-6</td>
+                        <td>This is Item number 5-6</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>7</td>
+                        <td>This is Item number 1-7</td>
+                        <td>This is Item number 2-7</td>
+                        <td>This is Item number 3-7</td>
+                        <td>This is Item number 4-7</td>
+                        <td>This is Item number 5-7</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>8</td>
+                        <td>This is Item number 1-8</td>
+                        <td>This is Item number 2-8</td>
+                        <td>This is Item number 3-8</td>
+                        <td>This is Item number 4-8</td>
+                        <td>This is Item number 5-8</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>9</td>
+                        <td>This is Item number 1-9</td>
+                        <td>This is Item number 2-9</td>
+                        <td>This is Item number 3-9</td>
+                        <td>This is Item number 4-9</td>
+                        <td>This is Item number 5-9</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>10</td>
+                        <td>This is Item number 1-10</td>
+                        <td>This is Item number 2-10</td>
+                        <td>This is Item number 3-10</td>
+                        <td>This is Item number 4-10</td>
+                        <td>This is Item number 5-10</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>11</td>
+                        <td>This is Item number 1-11</td>
+                        <td>This is Item number 2-11</td>
+                        <td>This is Item number 3-11</td>
+                        <td>This is Item number 4-11</td>
+                        <td>This is Item number 5-11</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>12</td>
+                        <td>This is Item number 1-12</td>
+                        <td>This is Item number 2-12</td>
+                        <td>This is Item number 3-12</td>
+                        <td>This is Item number 4-12</td>
+                        <td>This is Item number 5-12</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>13</td>
+                        <td>This is Item number 1-13</td>
+                        <td>This is Item number 2-13</td>
+                        <td>This is Item number 3-13</td>
+                        <td>This is Item number 4-13</td>
+                        <td>This is Item number 5-13</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>14</td>
+                        <td>This is Item number 1-14</td>
+                        <td>This is Item number 2-14</td>
+                        <td>This is Item number 3-14</td>
+                        <td>This is Item number 4-14</td>
+                        <td>This is Item number 5-14</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>15</td>
+                        <td>This is Item number 1-15</td>
+                        <td>This is Item number 2-15</td>
+                        <td>This is Item number 3-15</td>
+                        <td>This is Item number 4-15</td>
+                        <td>This is Item number 5-15</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>16</td>
+                        <td>This is Item number 1-16</td>
+                        <td>This is Item number 2-16</td>
+                        <td>This is Item number 3-16</td>
+                        <td>This is Item number 4-16</td>
+                        <td>This is Item number 5-16</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>17</td>
+                        <td>This is Item number 1-17</td>
+                        <td>This is Item number 2-17</td>
+                        <td>This is Item number 3-17</td>
+                        <td>This is Item number 4-17</td>
+                        <td>This is Item number 5-17</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>18</td>
+                        <td>This is Item number 1-18</td>
+                        <td>This is Item number 2-18</td>
+                        <td>This is Item number 3-18</td>
+                        <td>This is Item number 4-18</td>
+                        <td>This is Item number 5-18</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>19</td>
+                        <td>This is Item number 1-19</td>
+                        <td>This is Item number 2-19</td>
+                        <td>This is Item number 3-19</td>
+                        <td>This is Item number 4-19</td>
+                        <td>This is Item number 5-19</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>20</td>
+                        <td>This is Item number 1-20</td>
+                        <td>This is Item number 2-20</td>
+                        <td>This is Item number 3-20</td>
+                        <td>This is Item number 4-20</td>
+                        <td>This is Item number 5-20</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label class="disabled" for="table_radio_-1">&laquo; Previous</label><label class="active" for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_1">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_1" />
+            <div class="table-display">Showing 21 to 40
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>21</td>
+                        <td>This is Item number 1-21</td>
+                        <td>This is Item number 2-21</td>
+                        <td>This is Item number 3-21</td>
+                        <td>This is Item number 4-21</td>
+                        <td>This is Item number 5-21</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>22</td>
+                        <td>This is Item number 1-22</td>
+                        <td>This is Item number 2-22</td>
+                        <td>This is Item number 3-22</td>
+                        <td>This is Item number 4-22</td>
+                        <td>This is Item number 5-22</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>23</td>
+                        <td>This is Item number 1-23</td>
+                        <td>This is Item number 2-23</td>
+                        <td>This is Item number 3-23</td>
+                        <td>This is Item number 4-23</td>
+                        <td>This is Item number 5-23</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>24</td>
+                        <td>This is Item number 1-24</td>
+                        <td>This is Item number 2-24</td>
+                        <td>This is Item number 3-24</td>
+                        <td>This is Item number 4-24</td>
+                        <td>This is Item number 5-24</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>25</td>
+                        <td>This is Item number 1-25</td>
+                        <td>This is Item number 2-25</td>
+                        <td>This is Item number 3-25</td>
+                        <td>This is Item number 4-25</td>
+                        <td>This is Item number 5-25</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>26</td>
+                        <td>This is Item number 1-26</td>
+                        <td>This is Item number 2-26</td>
+                        <td>This is Item number 3-26</td>
+                        <td>This is Item number 4-26</td>
+                        <td>This is Item number 5-26</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>27</td>
+                        <td>This is Item number 1-27</td>
+                        <td>This is Item number 2-27</td>
+                        <td>This is Item number 3-27</td>
+                        <td>This is Item number 4-27</td>
+                        <td>This is Item number 5-27</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>28</td>
+                        <td>This is Item number 1-28</td>
+                        <td>This is Item number 2-28</td>
+                        <td>This is Item number 3-28</td>
+                        <td>This is Item number 4-28</td>
+                        <td>This is Item number 5-28</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>29</td>
+                        <td>This is Item number 1-29</td>
+                        <td>This is Item number 2-29</td>
+                        <td>This is Item number 3-29</td>
+                        <td>This is Item number 4-29</td>
+                        <td>This is Item number 5-29</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>30</td>
+                        <td>This is Item number 1-30</td>
+                        <td>This is Item number 2-30</td>
+                        <td>This is Item number 3-30</td>
+                        <td>This is Item number 4-30</td>
+                        <td>This is Item number 5-30</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>31</td>
+                        <td>This is Item number 1-31</td>
+                        <td>This is Item number 2-31</td>
+                        <td>This is Item number 3-31</td>
+                        <td>This is Item number 4-31</td>
+                        <td>This is Item number 5-31</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>32</td>
+                        <td>This is Item number 1-32</td>
+                        <td>This is Item number 2-32</td>
+                        <td>This is Item number 3-32</td>
+                        <td>This is Item number 4-32</td>
+                        <td>This is Item number 5-32</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>33</td>
+                        <td>This is Item number 1-33</td>
+                        <td>This is Item number 2-33</td>
+                        <td>This is Item number 3-33</td>
+                        <td>This is Item number 4-33</td>
+                        <td>This is Item number 5-33</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>34</td>
+                        <td>This is Item number 1-34</td>
+                        <td>This is Item number 2-34</td>
+                        <td>This is Item number 3-34</td>
+                        <td>This is Item number 4-34</td>
+                        <td>This is Item number 5-34</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>35</td>
+                        <td>This is Item number 1-35</td>
+                        <td>This is Item number 2-35</td>
+                        <td>This is Item number 3-35</td>
+                        <td>This is Item number 4-35</td>
+                        <td>This is Item number 5-35</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>36</td>
+                        <td>This is Item number 1-36</td>
+                        <td>This is Item number 2-36</td>
+                        <td>This is Item number 3-36</td>
+                        <td>This is Item number 4-36</td>
+                        <td>This is Item number 5-36</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>37</td>
+                        <td>This is Item number 1-37</td>
+                        <td>This is Item number 2-37</td>
+                        <td>This is Item number 3-37</td>
+                        <td>This is Item number 4-37</td>
+                        <td>This is Item number 5-37</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>38</td>
+                        <td>This is Item number 1-38</td>
+                        <td>This is Item number 2-38</td>
+                        <td>This is Item number 3-38</td>
+                        <td>This is Item number 4-38</td>
+                        <td>This is Item number 5-38</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>39</td>
+                        <td>This is Item number 1-39</td>
+                        <td>This is Item number 2-39</td>
+                        <td>This is Item number 3-39</td>
+                        <td>This is Item number 4-39</td>
+                        <td>This is Item number 5-39</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>40</td>
+                        <td>This is Item number 1-40</td>
+                        <td>This is Item number 2-40</td>
+                        <td>This is Item number 3-40</td>
+                        <td>This is Item number 4-40</td>
+                        <td>This is Item number 5-40</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_0">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label class="active" for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_2">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_2" />
+            <div class="table-display">Showing 41 to 60
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>41</td>
+                        <td>This is Item number 1-41</td>
+                        <td>This is Item number 2-41</td>
+                        <td>This is Item number 3-41</td>
+                        <td>This is Item number 4-41</td>
+                        <td>This is Item number 5-41</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>42</td>
+                        <td>This is Item number 1-42</td>
+                        <td>This is Item number 2-42</td>
+                        <td>This is Item number 3-42</td>
+                        <td>This is Item number 4-42</td>
+                        <td>This is Item number 5-42</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>43</td>
+                        <td>This is Item number 1-43</td>
+                        <td>This is Item number 2-43</td>
+                        <td>This is Item number 3-43</td>
+                        <td>This is Item number 4-43</td>
+                        <td>This is Item number 5-43</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>44</td>
+                        <td>This is Item number 1-44</td>
+                        <td>This is Item number 2-44</td>
+                        <td>This is Item number 3-44</td>
+                        <td>This is Item number 4-44</td>
+                        <td>This is Item number 5-44</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>45</td>
+                        <td>This is Item number 1-45</td>
+                        <td>This is Item number 2-45</td>
+                        <td>This is Item number 3-45</td>
+                        <td>This is Item number 4-45</td>
+                        <td>This is Item number 5-45</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>46</td>
+                        <td>This is Item number 1-46</td>
+                        <td>This is Item number 2-46</td>
+                        <td>This is Item number 3-46</td>
+                        <td>This is Item number 4-46</td>
+                        <td>This is Item number 5-46</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>47</td>
+                        <td>This is Item number 1-47</td>
+                        <td>This is Item number 2-47</td>
+                        <td>This is Item number 3-47</td>
+                        <td>This is Item number 4-47</td>
+                        <td>This is Item number 5-47</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>48</td>
+                        <td>This is Item number 1-48</td>
+                        <td>This is Item number 2-48</td>
+                        <td>This is Item number 3-48</td>
+                        <td>This is Item number 4-48</td>
+                        <td>This is Item number 5-48</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>49</td>
+                        <td>This is Item number 1-49</td>
+                        <td>This is Item number 2-49</td>
+                        <td>This is Item number 3-49</td>
+                        <td>This is Item number 4-49</td>
+                        <td>This is Item number 5-49</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>50</td>
+                        <td>This is Item number 1-50</td>
+                        <td>This is Item number 2-50</td>
+                        <td>This is Item number 3-50</td>
+                        <td>This is Item number 4-50</td>
+                        <td>This is Item number 5-50</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>51</td>
+                        <td>This is Item number 1-51</td>
+                        <td>This is Item number 2-51</td>
+                        <td>This is Item number 3-51</td>
+                        <td>This is Item number 4-51</td>
+                        <td>This is Item number 5-51</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>52</td>
+                        <td>This is Item number 1-52</td>
+                        <td>This is Item number 2-52</td>
+                        <td>This is Item number 3-52</td>
+                        <td>This is Item number 4-52</td>
+                        <td>This is Item number 5-52</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>53</td>
+                        <td>This is Item number 1-53</td>
+                        <td>This is Item number 2-53</td>
+                        <td>This is Item number 3-53</td>
+                        <td>This is Item number 4-53</td>
+                        <td>This is Item number 5-53</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>54</td>
+                        <td>This is Item number 1-54</td>
+                        <td>This is Item number 2-54</td>
+                        <td>This is Item number 3-54</td>
+                        <td>This is Item number 4-54</td>
+                        <td>This is Item number 5-54</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>55</td>
+                        <td>This is Item number 1-55</td>
+                        <td>This is Item number 2-55</td>
+                        <td>This is Item number 3-55</td>
+                        <td>This is Item number 4-55</td>
+                        <td>This is Item number 5-55</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>56</td>
+                        <td>This is Item number 1-56</td>
+                        <td>This is Item number 2-56</td>
+                        <td>This is Item number 3-56</td>
+                        <td>This is Item number 4-56</td>
+                        <td>This is Item number 5-56</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>57</td>
+                        <td>This is Item number 1-57</td>
+                        <td>This is Item number 2-57</td>
+                        <td>This is Item number 3-57</td>
+                        <td>This is Item number 4-57</td>
+                        <td>This is Item number 5-57</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>58</td>
+                        <td>This is Item number 1-58</td>
+                        <td>This is Item number 2-58</td>
+                        <td>This is Item number 3-58</td>
+                        <td>This is Item number 4-58</td>
+                        <td>This is Item number 5-58</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>59</td>
+                        <td>This is Item number 1-59</td>
+                        <td>This is Item number 2-59</td>
+                        <td>This is Item number 3-59</td>
+                        <td>This is Item number 4-59</td>
+                        <td>This is Item number 5-59</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>60</td>
+                        <td>This is Item number 1-60</td>
+                        <td>This is Item number 2-60</td>
+                        <td>This is Item number 3-60</td>
+                        <td>This is Item number 4-60</td>
+                        <td>This is Item number 5-60</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_1">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label class="active" for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_3">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_3" />
+            <div class="table-display">Showing 61 to 80
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>61</td>
+                        <td>This is Item number 1-61</td>
+                        <td>This is Item number 2-61</td>
+                        <td>This is Item number 3-61</td>
+                        <td>This is Item number 4-61</td>
+                        <td>This is Item number 5-61</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>62</td>
+                        <td>This is Item number 1-62</td>
+                        <td>This is Item number 2-62</td>
+                        <td>This is Item number 3-62</td>
+                        <td>This is Item number 4-62</td>
+                        <td>This is Item number 5-62</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>63</td>
+                        <td>This is Item number 1-63</td>
+                        <td>This is Item number 2-63</td>
+                        <td>This is Item number 3-63</td>
+                        <td>This is Item number 4-63</td>
+                        <td>This is Item number 5-63</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>64</td>
+                        <td>This is Item number 1-64</td>
+                        <td>This is Item number 2-64</td>
+                        <td>This is Item number 3-64</td>
+                        <td>This is Item number 4-64</td>
+                        <td>This is Item number 5-64</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>65</td>
+                        <td>This is Item number 1-65</td>
+                        <td>This is Item number 2-65</td>
+                        <td>This is Item number 3-65</td>
+                        <td>This is Item number 4-65</td>
+                        <td>This is Item number 5-65</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>66</td>
+                        <td>This is Item number 1-66</td>
+                        <td>This is Item number 2-66</td>
+                        <td>This is Item number 3-66</td>
+                        <td>This is Item number 4-66</td>
+                        <td>This is Item number 5-66</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>67</td>
+                        <td>This is Item number 1-67</td>
+                        <td>This is Item number 2-67</td>
+                        <td>This is Item number 3-67</td>
+                        <td>This is Item number 4-67</td>
+                        <td>This is Item number 5-67</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>68</td>
+                        <td>This is Item number 1-68</td>
+                        <td>This is Item number 2-68</td>
+                        <td>This is Item number 3-68</td>
+                        <td>This is Item number 4-68</td>
+                        <td>This is Item number 5-68</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>69</td>
+                        <td>This is Item number 1-69</td>
+                        <td>This is Item number 2-69</td>
+                        <td>This is Item number 3-69</td>
+                        <td>This is Item number 4-69</td>
+                        <td>This is Item number 5-69</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>70</td>
+                        <td>This is Item number 1-70</td>
+                        <td>This is Item number 2-70</td>
+                        <td>This is Item number 3-70</td>
+                        <td>This is Item number 4-70</td>
+                        <td>This is Item number 5-70</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>71</td>
+                        <td>This is Item number 1-71</td>
+                        <td>This is Item number 2-71</td>
+                        <td>This is Item number 3-71</td>
+                        <td>This is Item number 4-71</td>
+                        <td>This is Item number 5-71</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>72</td>
+                        <td>This is Item number 1-72</td>
+                        <td>This is Item number 2-72</td>
+                        <td>This is Item number 3-72</td>
+                        <td>This is Item number 4-72</td>
+                        <td>This is Item number 5-72</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>73</td>
+                        <td>This is Item number 1-73</td>
+                        <td>This is Item number 2-73</td>
+                        <td>This is Item number 3-73</td>
+                        <td>This is Item number 4-73</td>
+                        <td>This is Item number 5-73</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>74</td>
+                        <td>This is Item number 1-74</td>
+                        <td>This is Item number 2-74</td>
+                        <td>This is Item number 3-74</td>
+                        <td>This is Item number 4-74</td>
+                        <td>This is Item number 5-74</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>75</td>
+                        <td>This is Item number 1-75</td>
+                        <td>This is Item number 2-75</td>
+                        <td>This is Item number 3-75</td>
+                        <td>This is Item number 4-75</td>
+                        <td>This is Item number 5-75</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>76</td>
+                        <td>This is Item number 1-76</td>
+                        <td>This is Item number 2-76</td>
+                        <td>This is Item number 3-76</td>
+                        <td>This is Item number 4-76</td>
+                        <td>This is Item number 5-76</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>77</td>
+                        <td>This is Item number 1-77</td>
+                        <td>This is Item number 2-77</td>
+                        <td>This is Item number 3-77</td>
+                        <td>This is Item number 4-77</td>
+                        <td>This is Item number 5-77</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>78</td>
+                        <td>This is Item number 1-78</td>
+                        <td>This is Item number 2-78</td>
+                        <td>This is Item number 3-78</td>
+                        <td>This is Item number 4-78</td>
+                        <td>This is Item number 5-78</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>79</td>
+                        <td>This is Item number 1-79</td>
+                        <td>This is Item number 2-79</td>
+                        <td>This is Item number 3-79</td>
+                        <td>This is Item number 4-79</td>
+                        <td>This is Item number 5-79</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>80</td>
+                        <td>This is Item number 1-80</td>
+                        <td>This is Item number 2-80</td>
+                        <td>This is Item number 3-80</td>
+                        <td>This is Item number 4-80</td>
+                        <td>This is Item number 5-80</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_2">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label class="active" for="table_radio_3" id="table_pager_3">4</label><label for="table_radio_4" id="table_pager_4">5</label><label for="table_radio_4">Next &raquo;</label></div><input class="table-radio" type="radio" name="table_radio" id="table_radio_4" />
+            <div class="table-display">Showing 81 to 85
+                of 95 items</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No</th>
+                        <th>FIRST HEADER</th>
+                        <th>SECOND HEADER</th>
+                        <th>THIRD HEADER</th>
+                        <th>FOURTH HEADER</th>
+                        <th>FIFTH HEADER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>81</td>
+                        <td>This is Item number 1-81</td>
+                        <td>This is Item number 2-81</td>
+                        <td>This is Item number 3-81</td>
+                        <td>This is Item number 4-81</td>
+                        <td>This is Item number 5-81</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>82</td>
+                        <td>This is Item number 1-82</td>
+                        <td>This is Item number 2-82</td>
+                        <td>This is Item number 3-82</td>
+                        <td>This is Item number 4-82</td>
+                        <td>This is Item number 5-82</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>83</td>
+                        <td>This is Item number 1-83</td>
+                        <td>This is Item number 2-83</td>
+                        <td>This is Item number 3-83</td>
+                        <td>This is Item number 4-83</td>
+                        <td>This is Item number 5-83</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>84</td>
+                        <td>This is Item number 1-84</td>
+                        <td>This is Item number 2-84</td>
+                        <td>This is Item number 3-84</td>
+                        <td>This is Item number 4-84</td>
+                        <td>This is Item number 5-84</td>
+                    </tr>
+                    <tr>
+                        <td><i class="unsolved-problem-color fa fa-minus-circle"></td>
+                        <td>85</td>
+                        <td>This is Item number 1-85</td>
+                        <td>This is Item number 2-85</td>
+                        <td>This is Item number 3-85</td>
+                        <td>This is Item number 4-85</td>
+                        <td>This is Item number 5-85</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination"><label for="table_radio_3">&laquo; Previous</label><label for="table_radio_0" id="table_pager_0">1</label><label for="table_radio_1" id="table_pager_1">2</label><label for="table_radio_2" id="table_pager_2">3</label><label for="table_radio_3" id="table_pager_3">4</label><label class="active" for="table_radio_4" id="table_pager_4">5</label><label class="disabled" for="table_radio_5">Next &raquo;</label></div>
+        </div>
+    </div>
+</body>
+>>>>>>> 87c9c15ba30f80ac0fea990a91b8a6ed08da295d
+</html>

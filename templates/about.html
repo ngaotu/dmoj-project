@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+  {% if request.organization %}
+    {% cache 3600 'organization_html' request.organization.id MATH_ENGINE %}
+      {{ request.organization.about|markdown|reference|str|safe }}
+    {% endcache %}
+  {% else %}
+  <h4>
+    <a target="_blank" href="/">VJUOJ (VJU Online Judge)</a> là hệ thống chấm bài tự động trực tuyến của <b>Trường Đại học Việt Nhật (VJU)</b>.
+    Hệ thống được xây dựng nhằm phục vụ học tập, thi lập trình và phát triển kỹ năng công nghệ thông tin cho sinh viên VJU.
+  </h4>
+  {% endif %}
+{% endblock %}
